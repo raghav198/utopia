@@ -1,0 +1,21 @@
+{
+    "Actor": {
+        "types": ["PC"],
+        "PC": {
+            "talentPoints": 10,
+            "SHP": 0,
+            "DHP": 0,
+            "stamina": 0
+        }
+    },
+    "Item": {
+        "types": ["weapon", "armor"],
+        "weapon": {
+            "slots": 12,
+            "damage": "0"
+        },
+        "armor": {
+            "slots": 6
+        }
+    }
+}
