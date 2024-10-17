@@ -1,6 +1,23 @@
 {
     "id": "utopia",
     "title": "Utopia TTRPG",
-    "description": "Utopia TTRPG System",
-    "version": "0.1"
+    "description": "Utopia TTRPG: Its not a game, its a way of life",
+    "version": "0.4",
+    "compatibility": {
+        "minimum": "11",
+        "verified": "11"
+    },
+    "esmodules": [
+        "module/utopia.mjs"
+    ],
+    "styles": [
+        "styles/utopia.css"
+    ],
+    "packs": [],
+    "languages": [],
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "SHP",
+    "initiative": "3d6 + @speed"
 }
+

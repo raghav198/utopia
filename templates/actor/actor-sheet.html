@@ -1,0 +1,70 @@
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
+    <header class="sheet-header">
+        <h1 class="charname"> <input name="name" type="text" value="{{actor.name}}" /> </h1>
+    </header>
+
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="dashboard">Character Dashboard</a>
+        <a class="item" data-tab="traits">Traits</a>
+        <a class="item" data-tab="inventory">Inventory</a>        
+    </nav>
+
+    <section class="sheet-body">
+        <div class="tab dashboard" data-group="primary" data-tab="dashboard">
+            <div class="grid-2col">
+                <div class="turn-tokens">
+                    Turn tokens:
+                    {{#for_split 0 6 1 system.tokens.turn}}
+                        <input type="checkbox" class="turn-token" checked />
+                    {{else}}
+                        <input type="checkbox" class="turn-token" />
+                    {{/for_split}}
+                </div>
+                <div class="turn-tokens">
+                    Interrupt tokens:
+                    {{#for_split 0 2 1 system.tokens.interrupt}}
+                        <input type="checkbox" class="interrupt-token" checked />
+                    {{else}}
+                        <input type="checkbox" class="interrupt-token" />
+                    {{/for_split}}
+                </div>
+            </div>
+            <div class="grid-2col">
+                <table>
+                    <tr>
+                        <th align="left">Trait</th>
+                        <th align="left">Value</th>
+                        <th align="left">Mod</th>
+                    </tr>
+                    {{#each system.traits as |trait name|}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{trait.value}}</td>
+                            <td>{{trait.mod}}</td>
+                        </tr>
+                    {{/each}}
+                </table>
+                <table>
+                    <tr>
+                        <th align="left">Subtrait</th>
+                        <th align="left">Gifted</th>
+                        <th align="left">Value</th>
+                        <th align="left">Mod</th>
+                    </tr>
+                    {{#each system.subtraits as |subtrait name|}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td><input type="checkbox" name="system.subtraits.{{name}}.gifted" {{checked subtrait.gifted}} /></td>
+                            <td><input type="text" name="system.subtraits.{{name}}.value" value="{{subtrait.value}}" data-dtype="Number" size="2"/></td>
+                            <td>{{subtrait.mod}}</td>
+                        </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+
+        <div class="tab inventory" data-group="primary" data-tab="inventory">
+            
+        </div>
+    </section>
+</form>

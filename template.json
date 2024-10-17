@@ -1,21 +1,187 @@
 {
     "Actor": {
-        "types": ["PC"],
+        "types": ["PC", "NPC"],
         "PC": {
-            "talentPoints": 10,
-            "SHP": 0,
-            "DHP": 0,
-            "stamina": 0
+            "name": "",
+            "species": "",
+            "tokens": {
+                "turn": 6,
+                "interrupt": 2
+            },
+            "xp": {
+                "max": 1000,
+                "value": 0
+            },
+            "shp": {
+                "value": 0
+            },
+            "dhp": {
+                "value": 0
+            },
+            "stamina": {
+                "value": 0
+            },
+            "block": "1d4",
+            "dodge": "1d12",
+
+            "stats": {
+                "con": 0,
+                "end": 0,
+                "eff": 0
+            },
+
+            "points": {
+                "body": 0,
+                "mind": 0,
+                "soul": 0,
+                "held": 10
+            },
+
+            "defenses": {
+                "chill": 0,
+                "energy": 0,
+                "heat": 0,
+                "physical": 0,
+                "psyche": 0
+            },
+
+            "subtraits": {
+                "speed": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "dexterity": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "power": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "fortitude": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "engineering": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "memory": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "resolve": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "awareness": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "portrayal": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "stunt": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "appeal": {
+                    "value": 1,
+                    "gifted": false
+                },
+                "language": {
+                    "value": 1,
+                    "gifted": false
+                }
+            },
+            "traits": {
+                "agility": {},
+                "strength": {},
+                "intellect": {},
+                "will": {},
+                "display": {},
+                "charm": {}
+            }
         }
     },
     "Item": {
-        "types": ["weapon", "armor"],
-        "weapon": {
-            "slots": 12,
-            "damage": "0"
+        "types": ["Weapon", "Armor", "Consumable", "Artifact", "Talent", "Trinket", "SpecialistTalent"],
+        "templates": {
+            "inventory": {
+                "name": "",
+                "size": 0,
+                "description": "",
+                "rarity": "crude"
+            },
+            "craftable": {
+                "crafting": [],
+                "cost": 0
+            }
         },
-        "armor": {
-            "slots": 6
+        "Weapon": {
+            "templates": ["inventory", "craftable"],
+            "tags": [],
+            "attackSpeed": 0,
+            "handling": 0,
+            "range": 0,
+            "isMelee": true,
+            "damage": [{
+                "amount": "1d4",
+                "type": "Physical"
+            }]
+        },
+        "Armor": {
+            "templates": ["inventory", "craftable"],
+            "tags": [],
+            "handling": 0,
+            "bodySlot": "head",
+            "defense": {
+                "chill": 0,
+                "energy": 0,
+                "heat": 0,
+                "physical": 0,
+                "psyche": 0,
+                "block": "0",
+                "dodge": "0"
+            }
+        },
+        "Consumable": {
+            "templates": ["inventory", "craftable"],
+            "activationTime": {
+                "time": 0,
+                "units": "TA"
+            },
+            "doses": 0
+        },
+        "Artifact": {
+            "templates": ["inventory", "craftable"],
+            "effect": {
+                "description": "",
+                "macro": ""
+            }
+        },
+        "Talent": {
+            "name": "",
+            "tree": "",
+            "position": {
+                "branch": 0,
+                "rank": 0
+            },
+            "effect": "",
+            "cost": {
+                "body": 0,
+                "mind": 0,
+                "soul": 0
+            }
+        },
+        "SpecialistTalent": {
+            "name": "",
+            "prerequisites": [],
+            "effect": ""
+        },
+        "Trinket": {
+            "templates": ["inventory", "craftable"]
         }
     }
 }
